@@ -1,0 +1,8 @@
+# build files
+src/build/*
+bin/*
+obj/*
+.cache/*
+
+# vscode / codium
+.vscode/*
