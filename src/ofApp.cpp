@@ -135,9 +135,8 @@ void ofApp::ofAppRandomSubdivide(class lp::ofTriangle tri, int depth) {
         triangles.push_back(tri);
         return;
     }
-
-    //for (auto tri1: tri.subdivideBarycentric(randomBarycentricVec())) {
-    for (auto tri1: tri.subdivideRegular()) {
+    
+    for (auto tri1: tri.subdivideRandom()) {
         ofAppRandomSubdivide(tri1, depth + 1);
     }
 }

@@ -3,6 +3,7 @@
 #include "ofTriangle.h"
 #include "ofGraphics.h"
 #include "ofVec2f.h"
+#include <algorithm>
 #include <vector>
 
 using namespace lp;
@@ -14,6 +15,25 @@ ofTriangle::ofTriangle(ofVec2f x, ofVec2f y, ofVec2f z) {
     this->z = z;
 }
 
+std::vector<lp::ofTriangle> ofTriangle::subdivideRandom() {
+
+    return subdivideBarycentric(ofVec3f(ofTriangle::randomBarycentricVec()));
+}
+
+ofVec3f ofTriangle::randomBarycentricVec() {
+    std::vector<float> breaks = {
+        ofRandom(1.0),
+        ofRandom(1.0)
+    };
+
+    std::sort(breaks.begin(), breaks.end());
+
+    float s = breaks[0];
+    float t = breaks[1] - breaks[0];
+    float u = 1 - breaks[1];
+
+    return ofVec3f(s, t, u);
+}
 
 std::vector<class ofTriangle> ofTriangle::subdivideBarycentric(ofVec3f coords) {
 

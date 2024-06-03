@@ -11,6 +11,8 @@ namespace lp {
             ofTriangle(ofVec2f, ofVec2f, ofVec2f);
             std::vector<ofTriangle> subdivideBarycentric(ofVec3f);
             std::vector<lp::ofTriangle> subdivideRegular();
+            std::vector<lp::ofTriangle> subdivideRandom();
+            static ofVec3f randomBarycentricVec();
             ofVec2f barycentricToCartesian(ofVec3f);
             void draw();
 
